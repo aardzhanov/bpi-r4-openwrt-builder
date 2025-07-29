@@ -32,10 +32,10 @@ echo "9a5944" > mtk-openwrt-feeds/autobuild/unified/feed_revision
 rm -rf mtk-openwrt-feeds/24.10/patches-feeds/108-strongswan-add-uci-support.patch 
 
 ### wireless-regdb modification - this remove all regdb wireless countries restrictions
-#rm -rf openwrt/package/firmware/wireless-regdb/patches/*.*
-#rm -rf mtk-openwrt-feeds/autobuild/unified/filogic/mac80211/24.10/files/package/firmware/wireless-regdb/patches/*.*
-#\cp -r my_files/500-tx_power.patch mtk-openwrt-feeds/autobuild/unified/filogic/mac80211/24.10/files/package/firmware/wireless-regdb/patches
-#\cp -r my_files/regdb.Makefile openwrt/package/firmware/wireless-regdb/Makefile
+rm -rf openwrt/package/firmware/wireless-regdb/patches/*.*
+rm -rf mtk-openwrt-feeds/autobuild/unified/filogic/mac80211/24.10/files/package/firmware/wireless-regdb/patches/*.*
+\cp -r my_files/500-tx_power.patch mtk-openwrt-feeds/autobuild/unified/filogic/mac80211/24.10/files/package/firmware/wireless-regdb/patches
+\cp -r my_files/regdb.Makefile openwrt/package/firmware/wireless-regdb/Makefile
 
 ### adds a frequency match check to ensure the noise value corresponds to the interface's actual frequency for multiple radios under a single wiphy
 cp -r my_files/200-wozi-libiwinfo-fix_noise_reading_for_radios.patch openwrt/package/network/utils/iwinfo/patches
@@ -74,11 +74,11 @@ cd openwrt
 ###### Then you can add all required additional feeds/packages ######### 
 
 # qmi modems extension for example
-\cp -r ../my_files/luci-app-3ginfo-lite-main/sms-tool/ feeds/packages/utils/sms-tool
-\cp -r ../my_files/luci-app-3ginfo-lite-main/luci-app-3ginfo-lite/ feeds/luci/applications
-\cp -r ../my_files/luci-app-modemband-main/luci-app-modemband/ feeds/luci/applications
-\cp -r ../my_files/luci-app-modemband-main/modemband/ feeds/packages/net/modemband
-\cp -r ../my_files/luci-app-at-socat/ feeds/luci/applications
+#\cp -r ../my_files/luci-app-3ginfo-lite-main/sms-tool/ feeds/packages/utils/sms-tool
+#\cp -r ../my_files/luci-app-3ginfo-lite-main/luci-app-3ginfo-lite/ feeds/luci/applications
+#\cp -r ../my_files/luci-app-modemband-main/luci-app-modemband/ feeds/luci/applications
+#\cp -r ../my_files/luci-app-modemband-main/modemband/ feeds/packages/net/modemband
+#\cp -r ../my_files/luci-app-at-socat/ feeds/luci/applications
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
